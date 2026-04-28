@@ -173,16 +173,16 @@ class VendingMachineSTM:
             print(f"Produsul {product_state.name} a fost eliberat!")
             print(f"Credit ramas: {self.take_money_stm.money} LEI")
 
-            opt = input("Doriți returnarea restului (1) sau selectarea altui produs (2)? ")
+            opt = input("Doriti returnarea restului (1) sau selectarea altui produs (2)? ")
             if opt == '1':
-                print(f"Ați primit restul de {self.take_money_stm.money} LEI. O zi frumoasă!")
+                print(f"Ati primit restul de {self.take_money_stm.money} LEI. O zi misto sa ai!")
                 self.take_money_stm.update_amount_of_money(0)
                 self.take_money_stm.set_state(self.take_money_stm.wait_state)
             else:
                 self.select_product_stm.choose_another_product()
         else:
             lipsa = product_state.price - self.take_money_stm.money
-            print(f"Fonduri insuficiente. Mai aveți nevoie de {lipsa:} LEI.")
+            print(f"Fonduri insuficiente. Mai ai nevoie de {lipsa} LEI.")
 
             self.take_money_stm.set_state(self.take_money_stm.insert_money_state)
             self.take_money_stm.current_state.process_insertion()
