@@ -97,13 +97,13 @@ fun exercitiul4() {
         3 to "o zi frumoasa"
     )
 
-    println("Harta initiala: $harta")
+    println("Initial: $harta")
 
     val rezultat = MapFunctor(harta)
         .map { valoare -> "Test $valoare" }
         .map { valoare -> valoare.toPascalCase() }
 
-    println("Harta finala: ${rezultat.map}")
+    println("Final: ${rezultat.map}")
 }
 
 
